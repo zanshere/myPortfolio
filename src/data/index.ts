@@ -35,7 +35,7 @@ export const projects = [
     title: 'Ikan Bakar Jo',
     description:
       'Aplikasi manajemen keuangan, menu dan bahan baku berbasis web.',
-    tech: ['PHP', 'Laravel', 'MySQL', 'Tailwind', 'Preline UI'],
+    tech: ['PHP', 'Laravel', 'MySQL', 'Tailwind CSS', 'Preline UI'],
     repoUrl: 'https://github.com/zanshere/ikan-bakar-jo',
     hasDemo: false,
     demoUrl: '',
@@ -45,7 +45,7 @@ export const projects = [
     title: 'Portfolio Website',
     description:
       'Website portfolio modern dengan animasi smooth, dark mode, dan responsif. Dibangun dengan teknologi terbaru.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn', 'Framer Motion', 'Lenis'],
     repoUrl: 'https://github.com/zanshere/myPortfolio',
     hasDemo: false,
     demoUrl: '',
@@ -55,8 +55,8 @@ export const projects = [
     title: 'Fajar World Fantasy',
     description:
       'Website wisata ragunan.',
-    tech: ['React', 'Tailwind CSS', 'LocalStorage', 'React DnD'],
-    repoUrl: 'https://github.com/zanshere/todo-app',
+    tech: ['PHP', 'Laravel', 'Tailwind CSS', 'MySQL', 'Preline UI', 'GSAP', 'Lenis'],
+    repoUrl: 'https://github.com/zanshere/fwf-project',
     hasDemo: false,
   },
 ]
