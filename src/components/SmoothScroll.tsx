@@ -27,5 +27,5 @@ export default function SmoothScroll() {
     };
   }, []);
 
-  return null;
+  return null; 
 }
