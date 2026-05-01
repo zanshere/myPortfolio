@@ -3,9 +3,18 @@
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import dynamic from 'next/dynamic';
 import { navItems } from '@/data';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const ThemeToggle = dynamic(() => import('@/components/ThemeToggle').then((mod) => mod.ThemeToggle), {
+  ssr: false,
+  loading: () => (
+    <Button variant="ghost" size="icon" className="w-9 h-9" aria-hidden="true">
+      <div className="h-5 w-5" />
+    </Button>
+  ),
+});
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
