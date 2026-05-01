@@ -8,9 +8,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: FaInstagram, href: 'https://instagram.com/fauzan.dev', label: 'Instagram' },
-    { icon: FaGithub, href: 'https://github.com/fauzan', label: 'GitHub' },
-    { icon: FaEnvelope, href: 'mailto:fauzan@example.com', label: 'Email' },
+    { icon: FaInstagram, href: 'https://instagram.com/zanshere_', label: 'Instagram' },
+    { icon: FaGithub, href: 'https://github.com/zanshere', label: 'GitHub' },
+    { icon: FaEnvelope, href: 'mailto:fauzan224321@gmail.com', label: 'Email' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -34,7 +34,7 @@ export function Footer() {
               Portfolio
             </h3>
             <p className="text-muted-foreground text-sm mt-2">
-              Menciptakan pengalaman digital elegan
+              Junior Web Developer
             </p>
           </motion.div>
 

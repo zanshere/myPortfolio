@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google'; 
+import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/Navbar';
 import SmoothScroll from '@/components/SmoothScroll';
@@ -16,7 +17,7 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: 'Portfolio | Muhammad Fauzan',
-  description: 'Website portfolio Muhammad Fauzan - Pengembang Kreatif',
+  description: 'Website portfolio Muhammad Fauzan - Junior Web Developer',
 };
 
 export default function RootLayout({
@@ -37,6 +38,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
