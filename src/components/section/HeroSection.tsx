@@ -28,14 +28,14 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
         >
-          <motion.div
+          {/* <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 }}
             className="inline-block mb-6 px-4 py-2 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 text-sm"
           >
             ✨ Halo, saya seorang pengembang web
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1
             className="text-5xl md:text-7xl font-bold mb-6"

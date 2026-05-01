@@ -56,7 +56,7 @@ export const projects = [
     description:
       'Website wisata ragunan.',
     tech: ['PHP', 'Laravel', 'Tailwind CSS', 'MySQL', 'Preline UI', 'GSAP', 'Lenis'],
-    repoUrl: 'https://github.com/zanshere/fwf-project',
+    repoUrl: 'https://github.com/zanshere/fwf-projects',
     hasDemo: false,
   },
 ]

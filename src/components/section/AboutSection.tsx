@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { FaCode, FaBriefcase, FaGraduationCap, FaHeart } from 'react-icons/fa';
 
 const stats = [
-  { icon: FaCode, label: 'Proyek Selesai', value: '10+' },
+  { icon: FaCode, label: 'Proyek Selesai', value: '5+' },
   { icon: FaBriefcase, label: 'Pengalaman', value: '1 Tahun' },
   { icon: FaGraduationCap, label: 'Sertifikat', value: '5+' },
   { icon: FaHeart, label: 'Kopi', value: '∞' },
@@ -66,7 +66,7 @@ export function AboutSection() {
             <div className="flex gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-sky-500 rounded-full" />
-                <span className="text-sm">Kode Bersih</span>
+                <span className="text-sm">Clean Code</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-sky-500 rounded-full" />

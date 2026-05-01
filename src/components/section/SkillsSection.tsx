@@ -13,6 +13,8 @@ import {
   SiGit,
   SiLinux,
   SiLaravel,
+  SiGithub,
+  SiNpm,
 } from 'react-icons/si';
 import { useState } from 'react';
 
@@ -27,6 +29,8 @@ const skills = [
   { name: 'Git', icon: SiGit, color: '#F05032' },
   { name: 'Linux', icon: SiLinux, color: '#FCC624' },
   { name: 'Laravel', icon: SiLaravel, color: '#FF2D20' },
+  { name: 'GitHub', icon: SiGithub, color: '' },
+  { name: 'NPM', icon: SiNpm, color: '#CB3837' },
 ];
 
 export function SkillsSection() {
