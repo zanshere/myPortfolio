@@ -34,7 +34,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 }}
             className="inline-block mb-6 px-4 py-2 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 text-sm"
           >
-            ✨ Welcome to my digital space
+            ✨ Halo, saya seorang pengembang web
           </motion.div>
 
           <motion.h1
@@ -44,10 +44,10 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.3 }}
           >
             <span className="bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent dark:from-sky-400 dark:to-sky-600">
-              Creative Developer
+              Muhammad Fauzan
             </span>
             <br />
-            & Problem Solver
+            Junior Web Developer
           </motion.h1>
 
           <motion.p
@@ -56,9 +56,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.4 }}
           >
-            I craft elegant digital experiences with modern web technologies.
-            Specialized in building exceptional websites that combine beautiful
-            design with powerful functionality.
+            Saya seorang pengembang web yang antusias dengan ketertarikan besar dalam menciptakan website modern, responsif, dan fungsional. Saya percaya kode yang bersih dan desain yang elegan adalah kunci pengalaman digital yang luar biasa.
           </motion.p>
 
           <motion.div
@@ -68,7 +66,7 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button onClick={scrollToContact} size="lg">
-              Get in touch
+              Hubungi Saya
             </Button>
             <Button
               variant="outline"
@@ -78,7 +76,7 @@ export function HeroSection() {
                 if (projects) projects.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              View my work
+              Lihat Karya Saya
             </Button>
           </motion.div>
         </motion.div>

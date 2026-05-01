@@ -1,34 +1,36 @@
-import type { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
-import { Navbar } from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
-import SmoothScroll from '@/components/SmoothScroll'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Open_Sans } from 'next/font/google'; 
+import { ThemeProvider } from 'next-themes';
+import { Navbar } from '@/components/Navbar';
+import SmoothScroll from '@/components/SmoothScroll';
+import { Footer } from '@/components/Footer';
+import './globals.css';
 
-const jetbrainsMono = JetBrains_Mono({
+// Konfigurasi Open Sans
+const openSans = Open_Sans({
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
-})
+  variable: '--font-open-sans',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Creative Developer',
-  description: 'Modern portfolio website showcasing my work as a creative developer',
-}
+  title: 'Portfolio | Muhammad Fauzan',
+  description: 'Website portfolio Muhammad Fauzan - Pengembang Kreatif',
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${jetbrainsMono.variable} font-mono antialiased`}>
+    <html lang="id" suppressHydrationWarning>
+      <body className={`${openSans.variable} antialiased`} style={{ fontFamily: 'var(--font-open-sans), Open Sans, sans-serif' }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           <SmoothScroll />
           <Navbar />
@@ -37,5 +39,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

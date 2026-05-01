@@ -1,17 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { navItems } from '@/data';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: FaTwitter, href: 'https://twitter.com/yourusername', label: 'Twitter' },
-    { icon: FaEnvelope, href: 'mailto:hello@example.com', label: 'Email' },
+    { icon: FaInstagram, href: 'https://instagram.com/fauzan.dev', label: 'Instagram' },
+    { icon: FaGithub, href: 'https://github.com/fauzan', label: 'GitHub' },
+    { icon: FaEnvelope, href: 'mailto:fauzan@example.com', label: 'Email' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -25,26 +24,24 @@ export function Footer() {
     <footer className="bg-card border-t border-border py-12 mt-auto">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
-          {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
             <h3 className="text-2xl font-bold bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent dark:from-sky-400 dark:to-sky-600">
               Portfolio
             </h3>
             <p className="text-muted-foreground text-sm mt-2">
-              Creating elegant digital experiences
+              Menciptakan pengalaman digital elegan
             </p>
           </motion.div>
 
-          {/* Navigation Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.1 }}
             className="flex flex-wrap justify-center gap-6"
           >
@@ -59,15 +56,14 @@ export function Footer() {
             ))}
           </motion.div>
 
-          {/* Social Icons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 }}
             className="flex justify-center md:justify-end gap-4"
           >
-            {socialLinks.map((social, index) => {
+            {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
                 <motion.a
@@ -87,19 +83,18 @@ export function Footer() {
           </motion.div>
         </div>
 
-        {/* Copyright */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.3 }}
           className="text-center mt-12 pt-6 border-t border-border"
         >
           <p className="text-muted-foreground text-sm">
-            &copy; {currentYear} Your Name. All rights reserved.
+            &copy; {currentYear} Muhammad Fauzan. All rights reserved.
           </p>
           <p className="text-muted-foreground text-xs mt-1">
-            Built with Next.js, Tailwind CSS, and Framer Motion
+            Dibangun dengan Next.js, Tailwind CSS, dan Framer Motion
           </p>
         </motion.div>
       </div>

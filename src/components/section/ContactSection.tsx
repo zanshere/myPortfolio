@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaInstagram, FaGithub } from 'react-icons/fa';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -11,12 +11,59 @@ export function ContactSection() {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({
+    type: null,
+    message: '',
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ACCESS_KEY dari web3forms.com
+  const WEB3FORMS_ACCESS_KEY = '11741425-275e-4fbd-b824-fd57a5dee962';
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Pesan dari ${formData.name} - Portfolio Website`,
+          from_name: formData.name,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Terima kasih! Pesan Anda telah terkirim. Saya akan segera merespons.',
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(result.message || 'Gagal mengirim pesan');
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Maaf, terjadi kesalahan. Silakan coba lagi nanti.',
+      });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setSubmitStatus({ type: null, message: '' });
+      }, 5000);
+    }
   };
 
   const handleChange = (
@@ -34,19 +81,19 @@ export function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }} // ubah ke false
           transition={{ duration: 0.6, ease: 'easeInOut' }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get In{' '}
+            Hubungi{' '}
             <span className="bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent dark:from-sky-400 dark:to-sky-600">
-              Touch
+              Saya
             </span>
           </h2>
           <div className="w-20 h-1 bg-sky-500 mx-auto rounded-full" />
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Have a project in mind? Let's work together and create something amazing
+            Punya proyek? Mari bekerja sama dan ciptakan sesuatu yang luar biasa
           </p>
         </motion.div>
 
@@ -54,10 +101,10 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           >
-            <h3 className="text-2xl font-semibold mb-6">Let's Talk</h3>
+            <h3 className="text-2xl font-semibold mb-6">Mari Terhubung</h3>
             <div className="space-y-6">
               <div className="flex items-center gap-4 group">
                 <div className="p-3 rounded-full bg-sky-100 dark:bg-sky-950 group-hover:bg-sky-200 dark:group-hover:bg-sky-900 transition-colors duration-300">
@@ -66,10 +113,10 @@ export function ContactSection() {
                 <div>
                   <p className="font-medium">Email</p>
                   <a
-                    href="mailto:hello@example.com"
+                    href="mailto:fauzan224321@gmail.com"
                     className="text-muted-foreground hover:text-sky-500 transition-colors"
                   >
-                    hello@example.com
+                    fauzan224321@gmail.com
                   </a>
                 </div>
               </div>
@@ -78,12 +125,12 @@ export function ContactSection() {
                   <FaPhone className="h-6 w-6 text-sky-600 dark:text-sky-400" />
                 </div>
                 <div>
-                  <p className="font-medium">Phone</p>
+                  <p className="font-medium">Telepon</p>
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+6285123658885"
                     className="text-muted-foreground hover:text-sky-500 transition-colors"
                   >
-                    +1 (234) 567-890
+                    +62 851-2365-8885
                   </a>
                 </div>
               </div>
@@ -92,8 +139,40 @@ export function ContactSection() {
                   <FaMapMarkerAlt className="h-6 w-6 text-sky-600 dark:text-sky-400" />
                 </div>
                 <div>
-                  <p className="font-medium">Location</p>
-                  <p className="text-muted-foreground">San Francisco, CA</p>
+                  <p className="font-medium">Alamat</p>
+                  <p className="text-muted-foreground">Cileungsi, Indonesia</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="p-3 rounded-full bg-sky-100 dark:bg-sky-950 group-hover:bg-sky-200 dark:group-hover:bg-sky-900 transition-colors duration-300">
+                  <FaInstagram className="h-6 w-6 text-sky-600 dark:text-sky-400" />
+                </div>
+                <div>
+                  <p className="font-medium">Instagram</p>
+                  <a
+                    href="https://instagram.com/zanshere_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-sky-500 transition-colors"
+                  >
+                    @zanshere_
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="p-3 rounded-full bg-sky-100 dark:bg-sky-950 group-hover:bg-sky-200 dark:group-hover:bg-sky-900 transition-colors duration-300">
+                  <FaGithub className="h-6 w-6 text-sky-600 dark:text-sky-400" />
+                </div>
+                <div>
+                  <p className="font-medium">GitHub</p>
+                  <a
+                    href="https://github.com/zanshere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-sky-500 transition-colors"
+                  >
+                    github.com/zanshere
+                  </a>
                 </div>
               </div>
             </div>
@@ -102,14 +181,14 @@ export function ContactSection() {
           <motion.form
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
             onSubmit={handleSubmit}
             className="space-y-6"
           >
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Name
+                Nama
               </label>
               <input
                 type="text"
@@ -117,7 +196,8 @@ export function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all duration-300"
+                disabled={isSubmitting}
+                className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all duration-300 disabled:opacity-50"
               />
             </div>
             <div>
@@ -130,12 +210,13 @@ export function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all duration-300"
+                disabled={isSubmitting}
+                className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all duration-300 disabled:opacity-50"
               />
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message
+                Pesan
               </label>
               <textarea
                 id="message"
@@ -143,12 +224,26 @@ export function ContactSection() {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all duration-300 resize-none"
+                disabled={isSubmitting}
+                className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all duration-300 resize-none disabled:opacity-50"
               />
             </div>
-            <Button type="submit" className="w-full group">
+
+            {submitStatus.type && (
+              <div
+                className={`p-4 rounded-lg ${
+                  submitStatus.type === 'success'
+                    ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800'
+                    : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800'
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
+
+            <Button type="submit" className="w-full group" disabled={isSubmitting}>
               <FaPaperPlane className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-              Send Message
+              {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
             </Button>
           </motion.form>
         </div>

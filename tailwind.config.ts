@@ -37,7 +37,7 @@ const config: Config = {
         ring: 'hsl(var(--ring))',
       },
       fontFamily: {
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Open Sans', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out',
